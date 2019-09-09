@@ -1,0 +1,30 @@
+spring:
+#  profiles:
+#    active:
+#      - dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/KinChenQ/cqtest1/
+          searchPaths: respo
+          username:
+          password:
+      label: master
+
+foo: version 1
+
+---
+spring:
+  profiles: dev
+  application:
+    name: config-server-dev
+server:
+  port: 8801
+---
+spring:
+  profiles: test
+  application:
+    name: config-server-test
+server:
+  port: 8802
